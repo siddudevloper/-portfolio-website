@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M Siddu - Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <style>
+    /* Custom Cursor */
+    .custom-cursor {
+      cursor: none;
+    }
+    .cursor {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #60a5fa;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: width 0.3s, height 0.3s, border-color 0.3s;
+    }
+    .cursor-hover {
+      width: 40px;
+      height: 40px;
+      border-color: #f59e0b;
+      background: rgba(245, 158, 11, 0.2);
+    }
+    /* Preloader */
+    #preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #1a202c, #2d3748);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    /* Glow Effect */
+    .glow-effect {
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white custom-cursor font-sans antialiased">
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="text-5xl font-extrabold text-blue-400 flex items-center gap-4">
+      <span class="animate-pulse">M</span>
+      <span class="animate-pulse" style="animation-delay: 0.2s;">.</span>
+      <span class="animate-pulse" style="animation-delay: 0.4s;">S</span>
+    </div>
+  </div>
+
+  <!-- Cursor -->
+  <div class="cursor"></div>
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full bg-gray-800/90 backdrop-blur-lg p-4 z-50 shadow-lg">
+    <div class="container mx-auto flex flex-wrap justify-between items-center">
+      <a href="#home" class="text-3xl font-extrabold text-blue-400 hover:scale-105 transition duration-300">M Siddu</a>
+      <div class="flex space-x-6 md:space-x-8 mt-4 md:mt-0">
+        <a href="#home" class="text-lg hover:text-blue-400 transition duration-300 hover:scale-110">Home</a>
+        <a href="#about" class="text-lg hover:text-blue-400 transition duration-300 hover:scale-110">About</a>
+        <a href="#projects" class="text-lg hover:text-blue-400 transition duration-300 hover:scale-110">Projects</a>
+        <a href="#resume" class="text-lg hover:text-blue-400 transition duration-300 hover:scale-110">Resume</a>
+        <a href="#contact" class="text-lg hover:text-blue-400 transition duration-300 hover:scale-110">Contact</a>
+        <a href="#blog" class="text-lg hover:text-blue-400 transition duration-300 hover:scale-110">Blog</a>
+      </div>
+      <button id="darkModeToggle" class="p-2 bg-gray-700 rounded-lg hover:bg-blue-500 transition duration-300 glow-effect">🌙</button>
+    </div>
+  </nav>
+
+  <!-- 1. Homepage -->
+  <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 relative overflow-hidden">
+    <div class="container mx-auto text-center px-4">
+      <h1 class="text-4xl sm:text-5xl md:text-7xl font-extrabold mb-6 animate-hero">Hi, I’m M Siddu 👋</h1>
+      <p class="text-lg sm:text-xl md:text-2xl text-gray-200 mb-8 animate-hero-subtitle">Web Developer | Creative Coder | UI Animator</p>
+      <div class="space-x-4 md:space-x-6">
+        <a href="#projects" class="inline-block px-6 py-3 bg-blue-500 text-white rounded-xl hover:bg-blue-600 transition duration-300 transform hover:scale-110 glow-effect">View My Work</a>
+        <a href="#contact" class="inline-block px-6 py-3 bg-transparent border-2 border-blue-400 text-blue-400 rounded-xl hover:bg-blue-600 hover:text-white transition duration-300 transform hover:scale-110 glow-effect">Let’s Connect</a>
+      </div>
+      <!-- Tech Stack Scroll -->
+      <div class="mt-12 flex overflow-hidden space-x-6 md:space-x-8 animate-tech-scroll">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="w-10 h-10 md:w-14 md:h-14 hover:scale-125 transition duration-300" alt="HTML">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" class="w-10 h-10 md:w-14 md:h-14 hover:scale-125 transition duration-300" alt="CSS">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="w-10 h-10 md:w-14 md:h-14 hover:scale-125 transition duration-300" alt="JS">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="w-10 h-10 md:w-14 md:h-14 hover:scale-125 transition duration-300" alt="React">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" class="w-10 h-10 md:w-14 md:h-14 hover:scale-125 transition duration-300" alt="C">
+      </div>
+      <p class="mt-8 text-base sm:text-lg md:text-xl animate-typing" id="animatedText">Building delightful experiences with code.</p>
+    </div>
+    <!-- 3D Gradient Wave Background -->
+    <canvas id="waveCanvas" class="absolute top-0 left-0 w-full h-full opacity-70"></canvas>
+  </section>
+
+  <!-- 2. About Me Page -->
+  <section id="about" class="min-h-screen py-16 md:py-20 bg-gray-800">
+    <div class="container mx-auto px-4 md:px-6">
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-center mb-12 md:mb-16 animate-scroll">About Me</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+        <div class="p-6 bg-gray-700/50 rounded-xl">
+          <p class="text-base sm:text-lg text-gray-200 mb-6 animate-scroll">"I'm M Siddu, a passionate web developer with a knack for turning complex problems into elegant digital solutions."</p>
+          <h3 class="text-xl sm:text-2xl font-semibold mb-4">Technical Skills</h3>
+          <div class="space-y-6">
+            <div class="animate-skill">
+              <p class="text-sm sm:text-base">HTML5/CSS3</p>
+              <div class="w-full bg-gray-600 h-3 rounded-full overflow-hidden"><div class="bg-blue-500 h-3 rounded-full w-0 skill-bar" data-width="90"></div></div>
+            </div>
+            <div class="animate-skill">
+              <p class="text-sm sm:text-base">JavaScript / TypeScript</p>
+              <div class="w-full bg-gray-600 h-3 rounded-full overflow-hidden"><div class="bg-blue-500 h-3 rounded-full w-0 skill-bar" data-width="85"></div></div>
+            </div>
+            <div class="animate-skill">
+              <p class="text-sm sm:text-base">React / Next.js</p>
+              <div class="w-full bg-gray-600 h-3 rounded-full overflow-hidden"><div class="bg-blue-500 h-3 rounded-full w-0 skill-bar" data-width="80"></div></div>
+            </div>
+            <div class="animate-skill">
+              <p class="text-sm sm:text-base">C Programming</p>
+              <div class="w-full bg-gray-600 h-3 rounded-full overflow-hidden"><div class="bg-blue-500 h-3 rounded-full w-0 skill-bar" data-width="70"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="p-6 bg-gray-700/50 rounded-xl">
+          <h3 class="text-xl sm:text-2xl font-semibold mb-4">Fun Facts</h3>
+          <div class="space-y-6">
+            <p class="flex items-center gap-4 animate-fact"><span class="text-2xl sm:text-3xl animate-bounce">💻</span> 1000+ hours of coding</p>
+            <p class="flex items-center gap-4 animate-fact"><span class="text-2xl sm:text-3xl animate-bounce" style="animation-delay: 0.2s;">☕</span> 300+ cups of coffee</p>
+            <p class="flex items-center gap-4 animate-fact"><span class="text-2xl sm:text-3xl animate-bounce" style="animation-delay: 0.4s;">📚</span> Lifelong learner</p>
+          </div>
+          <div class="mt-8 animate-scroll">
+            <img src="https://via.placeholder.com/200" alt="M Siddu Avatar" class="rounded-full mx-auto w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 transform hover:scale-110 hover:rotate-6 transition duration-500 glow-effect">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Projects Page -->
+  <section id="projects" class="min-h-screen py-16 md:py-20 bg-gray-900">
+    <div class="container mx-auto px-4 md:px-6">
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-center mb-12 md:mb-16 animate-scroll">Projects</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div class="bg-gray-800 p-6 rounded-xl transform hover:scale-105 hover:rotate-2 transition duration-500 animate-scroll glow-effect">
+          <img src="https://via.placeholder.com/300" alt="Weather App" class="w-full h-48 object-cover rounded-lg transform hover:scale-110 transition duration-500">
+          <h3 class="text-xl sm:text-2xl font-semibold mt-4">Weather App</h3>
+          <p class="text-gray-300 text-sm sm:text-base">Built With: HTML, CSS, JS, API</p>
+          <p class="text-gray-400 mt-2 text-sm sm:text-base">A simple yet beautiful weather app using OpenWeather API.</p>
+          <div class="mt-4 space-x-4">
+            <a href="#" class="inline-block px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-300 transform hover:scale-110 glow-effect">Live Demo</a>
+            <a href="#" class="inline-block px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition duration-300 transform hover:scale-110 glow-effect">GitHub Code</a>
+          </div>
+        </div>
+        <!-- Add more project cards as needed -->
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Resume Page -->
+  <section id="resume" class="min-h-screen py-16 md:py-20 bg-gray-800">
+    <div class="container mx-auto px-4 md:px-6">
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-center mb-12 md:mb-16 animate-scroll">Resume</h2>
+      <div class="text-center mb-8 md:mb-12">
+        <a href="#" class="inline-block px-6 py-3 bg-blue-500 text-white rounded-xl hover:bg-blue-600 transition duration-300 transform hover:scale-110 glow-effect">📥 Download Resume</a>
+      </div>
+      <div class="space-y-12">
+        <div class="animate-scroll">
+          <h3 class="text-xl sm:text-2xl font-semibold text-center">Experience Timeline</h3>
+          <div class="mt-6 space-y-6 max-w-3xl mx-auto">
+            <div class="bg-gray-700 p-4 md:p-6 rounded-xl transform hover:scale-105 transition duration-500 glow-effect">
+              <p class="text-base sm:text-lg">2025 – Present: Freelance Developer</p>
+            </div>
+            <div class="bg-gray-700 p-4 md:p-6 rounded-xl transform hover:scale-105 transition duration-500 glow-effect">
+              <p class="text-base sm:text-lg">2024 – Intern @ XYZ Tech</p>
+            </div>
+            <div class="bg-gray-700 p-4 md:p-6 rounded-xl transform hover:scale-105 transition duration-500 glow-effect">
+              <p class="text-base sm:text-lg">Education: Your Degree, University, Year</p>
+            </div>
+          </div>
+        </div>
+        <div class="animate-scroll">
+          <h3 class="text-xl sm:text-2xl font-semibold text-center">Skills</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6 max-w-3xl mx-auto">
+            <div class="bg-gray-700 p-4 md:p-6 rounded-xl transform hover:scale-105 transition duration-500">
+              <p class="font-semibold text-base sm:text-lg">Soft Skills:</p>
+              <p class="text-gray-300 text-sm sm:text-base">Problem-solving, Communication</p>
+            </div>
+            <div class="bg-gray-700 p-4 md:p-6 rounded-xl transform hover:scale-105 transition duration-500">
+              <p class="font-semibold text-base sm:text-lg">Tools:</p>
+              <p class="text-gray-300 text-sm sm:text-base">VS Code, GitHub, Figma</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Contact Page -->
+  <section id="contact" class="min-h-screen py-16 md:py-20 bg-gray-900">
+    <div class="container mx-auto px-4 md:px-6">
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-center mb-12 md:mb-16 animate-scroll">Contact</h2>
+      <div class="max-w-lg mx-auto bg-gray-800/80 p-6 md:p-8 rounded-xl glow-effect">
+        <div class="space-y-6">
+          <input type="text" placeholder="Name" class="w-full p-3 bg-gray-700 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-blue-500 animate-scroll transition duration-300">
+          <input type="email" placeholder="Email" class="w-full p-3 bg-gray-700 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-blue-500 animate-scroll transition duration-300">
+          <textarea placeholder="Message" class="w-full p-3 bg-gray-700 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-blue-500 h-32 animate-scroll transition duration-300"></textarea>
+          <button id="submitBtn" class="w-full p-3 bg-blue-500 text-white rounded-xl hover:bg-blue-600 transition duration-300 transform hover:scale-105 glow-effect">Submit</button>
+        </div>
+        <div id="thankYou" class="hidden text-center mt-6 text-blue-400 text-lg sm:text-xl animate-pulse">Thank You! I’ll get back to you soon!</div>
+      </div>
+      <div class="mt-12 text-center space-x-6 md:space-x-8">
+        <a href="#" class="text-2xl sm:text-3xl hover:text-blue-400 transition duration-300 transform hover:scale-125 animate-scroll">GitHub</a>
+        <a href="#" class="text-2xl sm:text-3xl hover:text-blue-400 transition duration-300 transform hover:scale-125 animate-scroll">LinkedIn</a>
+        <a href="#" class="text-2xl sm:text-3xl hover:text-blue-400 transition duration-300 transform hover:scale-125 animate-scroll">Twitter</a>
+      </div>
+      <p class="text-center mt-6 text-gray-300 text-sm sm:text-base animate-scroll">Email: msiddu@example.com</p>
+    </div>
+  </section>
+
+  <!-- 6. Blog Page -->
+  <section id="blog" class="min-h-screen py-16 md:py-20 bg-gray-800">
+    <div class="container mx-auto px-4 md:px-6">
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-center mb-12 md:mb-16 animate-scroll">Blog</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div class="bg-gray-700 p-6 rounded-xl transform hover:scale-105 hover:rotate-2 transition duration-500 animate-scroll glow-effect">
+          <h3 class="text-xl sm:text-2xl font-semibold">How I built my first portfolio site in C & JS</h3>
+          <p class="text-gray-300 mt-2 text-sm sm:text-base">Sharing my journey of combining C and JS for a unique portfolio.</p>
+        </div>
+        <div class="bg-gray-700 p-6 rounded-xl transform hover:scale-105 hover:rotate-2 transition duration-500 animate-scroll glow-effect">
+          <h3 class="text-xl sm:text-2xl font-semibold">Top 5 tools every beginner dev should know</h3>
+          <p class="text-gray-300 mt-2 text-sm sm:text-base">A rundown of must-have tools for new developers.</p>
+        </div>
+        <div class="bg-gray-700 p-6 rounded-xl transform hover:scale-105 hover:rotate-2 transition duration-500 animate-scroll glow-effect">
+          <h3 class="text-xl sm:text-2xl font-semibold">Why animations matter in web UX</h3>
+          <p class="text-gray-300 mt-2 text-sm sm:text-base">Exploring the impact of animations on user experience.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 404 Page -->
+  <section id="404" class="min-h-screen py-16 md:py-20 bg-gray-900 hidden">
+    <div class="container mx-auto px-4 md:px-6 text-center">
+      <h2 class="text-4xl sm:text-5xl font-extrabold mb-6 animate-bounce">Oops! Lost in code? 🤔</h2>
+      <p class="text-lg sm:text-xl text-gray-300 mb-8">The page you’re looking for doesn’t exist.</p>
+      <a href="#home" class="inline-block px-6 py-3 bg-blue-500 text-white rounded-xl hover:bg-blue-600 transition duration-300 transform hover:scale-110 glow-effect">Back to Home</a>
+    </div>
+  </section>
+
+  <script>
+    // Preloader Animation
+    window.addEventListener('load', () => {
+      gsap.to('#preloader', {
+        opacity: 0,
+        duration: 1.5,
+        delay: 1,
+        onComplete: () => {
+          document.getElementById('preloader').style.display = 'none';
+        }
+      });
+    });
+
+    // Custom Cursor
+    const cursor = document.querySelector('.cursor');
+    document.addEventListener('mousemove', (e) => {
+      gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0.1 });
+    });
+    document.querySelectorAll('a, button, img').forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('cursor-hover'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-hover'));
+    });
+
+    // GSAP Scroll Animations
+    gsap.registerPlugin(ScrollTrigger);
+    document.querySelectorAll('.animate-scroll').forEach(el => {
+      gsap.from(el, {
+        opacity: 0,
+        y: 60,
+        duration: 1.2,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 85%',
+        }
+      });
+    });
+
+    // Skill Bars Animation
+    document.querySelectorAll('.animate-skill').forEach(el => {
+      const bar = el.querySelector('.skill-bar');
+      gsap.from(bar, {
+        width: 0,
+        duration: 1.5,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 85%',
+          onEnter: () => {
+            bar.style.width = bar.dataset.width + '%';
+          }
+        }
+      });
+    });
+
+    // Fun Facts Animation
+    document.querySelectorAll('.animate-fact').forEach((el, i) => {
+      gsap.from(el, {
+        opacity: 0,
+        x: -50,
+        duration: 1,
+        delay: i * 0.3,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 85%',
+        }
+      });
+    });
+
+    // Hero Section Animation
+    gsap.from('.animate-hero', { opacity: 0, y: -60, duration: 1.5, delay: 0.5, ease: 'power3.out' });
+    gsap.from('.animate-hero-subtitle', { opacity: 0, y: 30, duration: 1.5, delay: 1, ease: 'power3.out' });
+
+    // Typing Effect with Blink Cursor
+    const text = "Building delightful experiences with code.";
+    let i = 0;
+    const animatedText = document.getElementById('animatedText');
+    animatedText.innerHTML = '<span></span><span class="animate-pulse">|</span>';
+    function typeWriter() {
+      if (i < text.length) {
+        animatedText.querySelector('span:first-child').innerHTML = text.substring(0, i + 1);
+        i++;
+        setTimeout(typeWriter, 80);
+      }
+    }
+    setTimeout(typeWriter, 1500);
+
+    // Tech Stack Scroll Animation
+    gsap.to('.animate-tech-scroll', {
+      x: -300,
+      duration: 15,
+      repeat: -1,
+      ease: 'linear',
+      scrollTrigger: {
+        trigger: '#home',
+        start: 'top 80%',
+      }
+    });
+
+    // Button Glow Effect
+    document.querySelectorAll('.glow-effect').forEach(el => {
+      gsap.to(el, {
+        boxShadow: '0 0 25px rgba(59, 130, 246, 0.7)',
+        duration: 1.2,
+        repeat: -1,
+        yoyo: true,
+        ease: 'power1.inOut'
+      });
+    });
+
+    // 3D Gradient Wave Background
+    const canvas = document.getElementById('waveCanvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    let time = 0;
+    function drawWave() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const w = canvas.width;
+      const h = canvas.height;
+      for (let y = 0; y < h; y += 10) {
+        ctx.beginPath();
+        for (let x = 0; x < w; x++) {
+          const wave = Math.sin(x * 0.01 + time) * 20 + Math.sin(y * 0.01 + time) * 10;
+          const color = `rgba(${100 + wave * 2}, ${150 + wave * 3}, 250, 0.5)`;
+          ctx.strokeStyle = color;
+          ctx.lineTo(x, y + wave);
+        }
+        ctx.stroke();
+      }
+      time += 0.05;
+      requestAnimationFrame(drawWave);
+    }
+    drawWave();
+
+    // Dark Mode Toggle
+    const toggle = document.getElementById('darkModeToggle');
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('bg-white');
+      document.body.classList.toggle('text-black');
+      document.body.classList.toggle('bg-gray-900');
+      document.body.classList.toggle('text-white');
+      gsap.to('body', { backgroundColor: document.body.classList.contains('bg-white') ? '#ffffff' : '#1f2937', duration: 0.5 });
+      toggle.textContent = document.body.classList.contains('bg-white') ? '☀️' : '🌙';
+    });
+
+    // Contact Form Submission
+    const submitBtn = document.getElementById('submitBtn');
+    const thankYou = document.getElementById('thankYou');
+    submitBtn.addEventListener('click', () => {
+      submitBtn.innerHTML = '<div class="w-6 h-6 border-4 border-blue-300 border-t-transparent rounded-full animate-spin mx-auto"></div>';
+      gsap.to(submitBtn, { scale: 0.95, duration: 0.3, yoyo: true, repeat: 1 });
+      setTimeout(() => {
+        submitBtn.innerHTML = 'Submit';
+        thankYou.classList.remove('hidden');
+        gsap.from('#thankYou', { opacity: 0, y: 30, duration: 1.2, ease: 'power2.out' });
+      }, 1500);
+    });
+
+    // Responsive Canvas Resize
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+  </script>
+</body>
+</html>
